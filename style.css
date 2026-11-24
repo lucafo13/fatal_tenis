@@ -88,11 +88,24 @@ body{
     gap: 120px;
     
 }
+@keyframes rota {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
 .separa img{
 }
 .lula{
     width: 600px;
     height: 600px;
+    transition: .5s;
+}
+.lula:hover{
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: rota infinite 0.2s ease-in-out;
 }
 
 .herosuperm{
@@ -204,24 +217,24 @@ body{
     border-bottom: 1px solid var(--gold);
 }
 .herosuperm em {
-  font-size: 1.5rem;
-  color: var(--sand);
-  display: block;
-  font-weight: 900;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 0.25em;
-  border-top: 1px solid var(--sand);
-  border-bottom: 1px solid var(--sand);
-
-  white-space: normal;   
-  overflow: visible;
-  width: 100%;
-  border-right: 2px solid var(--sand);
-  animation: cursor .4s step-end infinite alternate;
+    font-size: 1.5rem;
+    color: var(--sand);
+    display: block;
+    font-weight: 900;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.25em;
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+    
+    white-space: normal;   
+    overflow: visible;
+    width: 100%;
+    border-right: 2px solid var(--sand);
+    animation: cursor .4s step-end infinite alternate;
 }
 .herosuperm em.done {
-  border-right: none;
-  animation: none;
+    border-right: none;
+    animation: none;
 }
 .form{
     width: 40%;
