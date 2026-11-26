@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f9fa">
+  <title>Fatal Tenis</title>
+  <link rel="shortcut icon" href="Logo fataltenis minimalista em vermelho【7†source】.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Fatal Tenis — início">
+        <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Fatal Tenis">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
+      <div class="nav-links" id="site-menu">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="produtos.html" aria-current="page">Produtos</a>
+        <a class="nav-link" href="index.html#comentarios">Comentários</a>
+        <a class="nav-link" href="index.html#local">Localização</a>
+        <button class="nav-cta nav-cart" id="lilcar" type="button" aria-controls="lilcarx" aria-expanded="false">
+          Carrinho <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <a class="nav-cta" href="contato.html">Contato <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+   <main>
+    <div class="titu contact-title" data-reveal>
+      <h1>Finalizar sua compra</h1>
+    </div>
+    <p class="contact-hint">Preencha seus dados e conclua a compra!</p>
+
+    <section class="separa contact-layout" aria-label="Envie uma mensagem para a Fatal Tenis">
+        
+        <img src="35034.png" class="lula contact-art" alt="Sapato azul de salto alto" data-reveal>
+        <form class="form" id="formu" data-reveal>
+          <div class="form-group">
+            <label for="nome">Nome de usuário</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome aqui" class="form-control" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="voce@email.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" autocomplete="cpf" required>   
+          </div>
+          <div class="form-group">
+            <label for="cep">CEP</label>
+            <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" autocomplete="postal-code" required>
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel" required>
+          </div>
+          <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Seu endereço completo" autocomplete="street-address" required>
+          </div>
+          <p class="form-status" id="email-status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn contact-submit">Enviar mensagem</button>
+        </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
+    <a href="#inicio">Voltar ao topo ↑</a>
+  </footer>
+
+
+</body>
+</html>

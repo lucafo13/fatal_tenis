@@ -105,7 +105,7 @@ body{
 }
 .lula:hover{
     animation: name duration timing-function delay iteration-count direction fill-mode;
-    animation: rota infinite 0.2s ease-in-out;
+    animation: rota infinite 100s ease-in-out;
 }
 
 .herosuperm{

@@ -83,7 +83,7 @@ body {
   display: flex;
   align-items: center;
   gap: clamp(18px, 3vw, 40px);
-}
+} 
 
 .nav-link {
   position: relative;
@@ -514,7 +514,11 @@ body {
   align-items: flex-start;
   padding: 20px;
 }
-
+#product-grid > .promotion-section,
+#product-grid > .catalog-results {
+  grid-column: 1 / -1;
+  width: 100%;
+}
 .product-grid .card-title {
   color: #242020;
   font-family: Arial, sans-serif;
