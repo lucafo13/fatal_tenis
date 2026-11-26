@@ -1,204 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
-<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f9fa">
+  <meta name="description" content="Encontre seu próximo par na Fatal Tenis. Explore nossa seleção de tênis e saltos.">
+  <title>Produtos — Fatal Tenis</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-    <nav class="navbar md:navbar-expand " style="background-color: #f8f9fa; color:#f04444 " >
-  <div class="container-fluid">
-    <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Logo" width="200" height="60" class="d-inline-block align-text-top">
-    <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer" aria-controls="navbarDrawer" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" aria-hidden="true"></span>
-    </button>
-    <dialog class="drawer drawer-end" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
-      <div class="drawer-header">
-        <h5 class="drawer-title" id="navbarDrawerLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a class="brand" href="index.html" aria-label="Fatal Tenis — início">
+        <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Fatal Tenis">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
+      <div class="nav-links" id="site-menu">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="produtos.html" aria-current="page">Produtos</a>
+        <a class="nav-link" href="index.html#comentarios">Comentários</a>
+        <a class="nav-link" href="index.html#local">Localização</a>
+        <button class="nav-cta nav-cart" id="lilcar" type="button" aria-controls="lilcarx" aria-expanded="false">
+          Carrinho <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <a class="nav-cta" href="contato.html">Contato <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="drawer-body mb-2 md:mb-0">
-        <ul class="nav navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="produtos.html" style="color: #f04444">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" style="color: #f04444;" type="button" data-bs-toggle="menu" aria-expanded="false">
-              Menu
-            </button>
-            <div class="menu">
-              <a class="menu-item" href="#" style="color: #f04444">Action</a>
-              <a class="menu-item" href="#" style="color: #f04444">Another action</a>
-              <hr class="menu-divider">
-              <a class="menu-item" href="#" style="color: #f04444">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true" style="color: #f04444" href="#local">Localização</a>
-          </li>
-        </ul>
-        <form class="hstack gap-2" role="search">
-          <input class="form-control" type="search"  style="color: #f04444; background-color: #f8f9fa; border: 1px solid #f04444 ;" placeholder="Search" aria-label="Search"/>
-          <button class="btn-solid btn-icon " style="background-color: #f04444;" type="submit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg>
-          </button>
-        </form>
-                <a id="lilcar" class="text-decoration-none text-light cartizin" style="cursor: pointer;"><i class="bi bi-cart cartizin"></i></a>
-        
+    </nav>
+  </header>
+
+  <main class="products-content">
+    <div class="titu page-title" data-reveal>
+      <h1>Nossos Produtos</h1>
+    </div>
+
+    <section class="catalog-section" id="catalogo" aria-label="Catálogo de produtos">
+      <div class="catalog-tools">
+        <div class="catalog-filters" role="group" aria-label="Filtrar produtos">
+          <button class="filter-chip is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-chip" type="button" data-filter="tenis" aria-pressed="false">Tênis</button>
+          <button class="filter-chip" type="button" data-filter="salto" aria-pressed="false">Saltos</button>
+        </div>
+        <label class="product-search">
+          <span class="visually-hidden">Buscar produtos</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 5 5"></path>
+          </svg>
+          <input id="product-search" type="search" placeholder="Buscar um modelo" autocomplete="off">
+        </label>
       </div>
-    </dialog
-    >
-    
-  </div>
-</nav>    
 
-<div id="lilcarx">
-  <h2>carrinho</h2>
-  <p>Produtos: <span id="quan">0</span></p>
-  <span id="lilcars"></span>
-  <button id="end" class="btn-custom">Finalizar compra</button>
-</div>
-<div class="container-fluid p-0 m-5">
-  <div class="titu">
+      <p class="catalog-results" id="catalog-results" aria-live="polite"></p>
+      <div class="product-grid" id="product-grid">
+        <article class="card product-card" data-category="tenis" data-name="Jordan vermelho e preto">
+          <div class="product-image-wrap">
+            <span class="product-index">01</span>
+            <img class="card-img-top" src="sapatoJordan.webp" alt="Tênis Jordan de cano alto nas cores vermelho, preto e branco" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">Tênis · cano alto</span>
+            <h3 class="card-title">Jordan vermelho e preto</h3>
+            <p class="card-text">Tênis de cano alto nas cores vermelho, preto e branco.</p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Jordan vermelho e preto">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
 
-    <h1 class="text-center">Nossos Produtos</h1>
+        <article class="card product-card" data-category="salto" data-name="Salto azul metalizado">
+          <div class="product-image-wrap">
+            <span class="product-index">02</span>
+            <img class="card-img-top" src="resenha.png" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">Salto · azul</span>
+            <h3 class="card-title">Salto azul</h3>
+            <p class="card-text">Salto alto azul metalizado com tiras delicadas.</p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Salto azul metalizado">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+      </div>
+      <p class="catalog-empty" id="catalog-empty" hidden>Nenhum produto encontrado. Tente outra busca ou filtro.</p>
+    </section>
+  </main>
+
+  <div id="lilcarx" class="cart-panel" aria-hidden="true">
+    <button class="cart-backdrop" type="button" data-cart-close aria-label="Fechar sacola"></button>
+    <section class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1">
+      <div class="cart-heading">
+        <div>
+          <p class="shop-kicker">Carrinho de compras</p>
+            <h2 id="cart-title">Carrinho</h2>
+        </div>
+        <button class="cart-close" type="button" data-cart-close aria-label="Fechar sacola">×</button>
+      </div>
+      <p class="cart-summary">Produtos: <strong id="quan">0</strong></p>
+      <p class="cart-empty" id="cart-empty">Seu carrinho está vazio.</p>
+      <ul class="cart-items" id="lilcars"></ul>
+      <p class="cart-status" id="cart-status" role="status" aria-live="polite"></p>
+      <a class="cart-contact" id="end" href="contato.html">Tenho interesse <span aria-hidden="true">↗</span></a>
+    </section>
   </div>
 
-  <div class="d-flex flex-wrap  justify-content-center gap-5 mt-5">
-    <section class="card  " style="max-width: 320px;color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn-solid theme-primary">Go somewhere</a>
-  </div>
-</section>
-<section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="sapatoJordan.webp" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Jordan Direito</h4>
-    <p class="card-text">Som text-centere quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
+  <footer class="site-footer">
+    <span>&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
+    <a href="#">Voltar ao topo ↑</a>
+  </footer>
 
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-<section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="sapatoJrodanO.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Jordan Esquerdo</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section><section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-    <section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-<section class="card" style="max-width: 320px;color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-<section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section><section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-<section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-<section class="card" style="max-width: 320px; color: black; background-color: #f8f9fa;">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm3GzH05GXcVuXFZQWe390cbGB63Sb9RTtL8vGoQ5ZYA&s=10" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h4 class="card-title">Sapatenis</h4>
-    <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <div class="d-flex justify-content-center">
-
-      <a href="#" class="btn-solid theme-primary" style="background-color: #f04444; color: white;">Go somewhere</a>
-    </div>
-  </div>
-</section>
-  </div>
-<br>
-<div class=" titu">
-    <h1>Nossas Promoções</h1>
-</div>
-<br>
-<footer class="bg-body-tertiary text-center py-4 mt-auto border-top " style="border-color: #f04444;">
-  <div class="container">
-    <br>
-    <br>
-    <span class="text-body-secondary">&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
-    <br>
-    <br>
-  </div>
-</footer>
+  <script src="home.js"></script>
+  <script src="produtos.js"></script>
 </body>
 </html>

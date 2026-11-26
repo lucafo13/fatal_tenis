@@ -1,207 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatal Tenis</title>
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/256/24/24697.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
-<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f9fa">
+  <title>Fatal Tenis</title>
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/256/24/24697.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
-    <nav class="navbar md:navbar-expand " style="background-color: #f8f9fa; color:#f04444 " >
-  <div class="container-fluid">
-    <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Logo" width="200" height="60" class="d-inline-block align-text-top">
-    <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarDrawer" aria-controls="navbarDrawer" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" aria-hidden="true"></span>
-    </button>
-    <dialog class="drawer drawer-end" tabindex="-1" id="navbarDrawer" aria-labelledby="navbarDrawerLabel">
-      <div class="drawer-header">
-        <h5 class="drawer-title" id="navbarDrawerLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="Fatal Tenis — início">
+        <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Fatal Tenis">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
+        <span></span><span></span>
+      </button>
+      <div class="nav-links" id="site-menu">
+        <a class="nav-link" href="#inicio">Início</a>
+        <a class="nav-link" href="produtos.html">Produtos</a>
+        <a class="nav-link" href="#comentarios">Comentários</a>
+        <a class="nav-link" href="#local">Localização</a>
+        <a class="nav-cta" href="contato.html">Contato <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="drawer-body mb-2 md:mb-0">
-        <ul class="nav navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="produtos.html" style="color: #f04444">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <button class="nav-link" style="color: #f04444;" type="button" data-bs-toggle="menu" aria-expanded="false">
-              Menu
-            </button>
-            <div class="menu">
-              <a class="menu-item" href="contato.html" style="color: #f04444">Contato</a>
-              <a class="menu-item" href="#" style="color: #f04444">Another action</a>
-              <hr class="menu-divider">
-              <a class="menu-item" href="#" style="color: #f04444">Something else here</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="titu page-title" id="inicio" data-reveal>
+      <h1>Fatal Tenis</h1>
+    </div>
+
+    <article class="separa" data-reveal>
+      <section class="hero">
+        <img src="image-removebg-preview.png" class="marquinha" data-parallax alt="">
+        <div class="conteudo">
+          <h1>Falta Tênis</h1>
+          <p>Encontre o sapato que encaixa na sua caminhada!</p>
+        </div>
+      </section>
+      <img src="Lula em destaque com design vermelho.png" class="lula" alt="Ilustração especial da Fatal Tenis">
+    </article>
+
+    <section class="home-gallery" id="colecao" aria-label="Destaques da loja" data-reveal>
+      <div class="gallery-heading">
+        <div class="titu"><h1>Destaques</h1></div>
+        <div class="gallery-controls">
+          <button class="slider-button" type="button" data-scroll="prev" data-scroll-target="#galleryTrack" aria-label="Ver destaque anterior">←</button>
+          <button class="slider-button" type="button" data-scroll="next" data-scroll-target="#galleryTrack" aria-label="Ver próximo destaque">→</button>
+        </div>
+      </div>
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-slide">
+          <img src="Logo fataltenis minimalista em vermelho【7†source】.png" alt="Logo Fatal Tenis">
+        </div>
+        <div class="gallery-slide">
+          <img src="download.jpg" alt="Destaque de estilo da loja">
+        </div>
+        <div class="gallery-slide">
+          <img src="https://pbs.twimg.com/amplify_video_thumb/2106378817300205568/img/o5Y_NKwn5Db5M45m.jpg" alt="Imagem em destaque" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="shoe-line" aria-label="Alguns produtos da Fatal Tenis" data-reveal>
+      <div class="shoe-line-heading">
+        <div class="titu"><h1>Alguns pares</h1></div>
+        <div class="gallery-controls">
+          <button class="slider-button" type="button" data-scroll="prev" data-scroll-target="#shoeTrack" aria-label="Ver produto anterior">←</button>
+          <button class="slider-button" type="button" data-scroll="next" data-scroll-target="#shoeTrack" aria-label="Ver próximo produto">→</button>
+        </div>
+      </div>
+      <div class="shoe-line-viewport">
+        <div class="shoe-line-track" id="shoeTrack">
+          <article class="shoe-line-card">
+            <img src="sapatoJordan.webp" alt="Tênis Jordan vermelho, preto e branco" loading="lazy">
+            <div><h2>Jordan vermelho</h2><a href="produtos.html">Ver produtos <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="shoe-line-card">
+            <img src="sapatoJrodanO.jpg" alt="Tênis Jordan vermelho visto de perfil" loading="lazy">
+            <div><h2>Jordan de perfil</h2><a href="produtos.html">Ver produtos <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="shoe-line-card">
+            <img src="resenha.png" alt="Salto alto azul metalizado" loading="lazy">
+            <div><h2>Salto azul</h2><a href="produtos.html">Ver produtos <span aria-hidden="true">↗</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="path-story" data-path-story aria-label="O estilo Fatal Tenis em quatro passos">
+      <div class="path-story-stage">
+        <div class="path-story-header">
+          <span class="path-story-label"><i></i></span>
+          <span class="path-story-count"><b data-path-count>01</b><span> / 04</span></span>
+        </div>
+        <div class="path-story-window">
+          <div class="path-story-track">
+            <div class="path-story-intro">
+              <span class="path-story-overline"></span>
+              <h2><em></em></h2>
+              <p></p>
+              <span class="path-story-cue"><b aria-hidden="true">→</b></span>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true" style="color: #f04444" href="#local">Localização</a>
-          </li>
-        </ul>
-        <form class="hstack gap-2" role="search">
-          <input class="form-control" type="search"  style="color: #f04444; background-color: #f8f9fa; border: 1px solid #f04444 ;" placeholder="Search" aria-label="Search"/>
-          <button class="btn-solid btn-icon " type="submit">
-            <svg class="bi" width="16" height="16"><use href="#search" /></svg>
-          </button>
-        </form>
-        
-      </div>
-    </dialog
-    >
-    
-  </div>
-</nav>
-<div class="titu" >
-    <h1 style="font-size: 60px;">Fatal Tenis</h1>
-</div>
-<article class="separa">
-
-  <section class="hero">
-    <img src="image-removebg-preview.png" class="marquinha" alt="">
-    <div class="conteudo">
-      <h1>Falta Tênis</h1>
-      <p>Encontre o sapato que encaixa na sua caminhada!</p>
-    </div>
-  </section>
-  <img src="Lula em destaque com design vermelho.png" class="lula" alt="">
-</article>
-<article class=" w-90 d-flex align-items-center justify-content-center">
-
-    <div id="carouselStackedBottom" class="carousel slide w-100 h-100" data-bs-ride="carousel">
-      <div class="carousel-inner rounded-5">
-        <div class="carousel-item active">
-          <img style="height: 550px;" src="Logo fataltenis minimalista em vermelho【7†source】.png" class="d-block w-100" alt="...">
+            <article class="path-story-card path-story-card-red">
+              <span class="path-story-card-label">01</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="sapatoJordan.webp" alt="Tênis Jordan vermelho, preto e branco" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p></div>
+            </article>
+            <article class="path-story-card path-story-card-sand">
+              <span class="path-story-card-label">02</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="sapatoJrodanO.jpg" alt="Tênis Jordan vermelho, branco e preto de perfil" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p></div>
+            </article>
+            <article class="path-story-card path-story-card-blue">
+              <span class="path-story-card-label">03</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="resenha.png" alt="Sapato azul de salto alto metalizado" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p></div>
+            </article>
+            <article class="path-story-card path-story-card-finish">
+              <span class="path-story-card-label">04</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="image-removebg-preview.png" alt="Símbolo vermelho da Fatal Tenis" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p><a href="produtos.html" aria-label="Ver coleção"><span aria-hidden="true">↗</span></a></div>
+            </article>
+          </div>
         </div>
-        <div class="carousel-item">
-          <img style="height: 550px;" src="download.jpg" class="d-block w-100" alt="...">
+        <div class="path-story-progress" aria-hidden="true"><span data-path-progress></span></div>
+      </div>
+    </section>
+
+    <section class="hero secondary-hero" data-reveal>
+      <img src="image-removebg-preview.png" class="marquinha" data-parallax alt="">
+      <div class="conteudo">
+        <h1>Encontre o calçado que vai entrar no seu carrinho</h1>
+        <p>Seu sapato ´seu primeiro passa</p>
+      </div>
+    </section>
+
+    <section class="reviews-section" id="comentarios">
+      <div class="titu" data-reveal>
+        <h1>Nossos comentários</h1>
+      </div>
+      <div class="ineedaherotogrid" id="diva">
+        <div class="rec" data-reveal>
+          <q>O CARA TEM EDELCIO ESCRITO NO CPF KKKKKKKK</q>
+          <em class="diddy">★★★★★</em>
+          <span>-@naoeoedelcio</span>
         </div>
-        <div class="carousel-item">
-          <img style="height: 550px;" src="https://pbs.twimg.com/amplify_video_thumb/2106378817300205568/img/o5Y_NKwn5Db5M45m.jpg" class="d-block w-100" alt="...">
+        <div class="rec" data-reveal>
+          <q>absolute cinema -- veio do cinema</q>
+          <em class="diddy">★★★★</em>
+          <span>-@naoeoedelcio</span>
+        </div>
+        <div class="rec" data-reveal>
+          <q>Who is this lil guy? 🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻💔💔💔💔</q>
+          <em class="diddy">★★★★</em>
+          <span>- @naoeoedelcio</span>
+        </div>
+        <div class="rec" data-reveal>
+          <q>Gostei muito, pena q tinha edelcio escrito no logo</q>
+          <em class="diddy">★★★★</em>
+          <span>- @naoeoedelcio</span>
+        </div>
+        <div class="rec" data-reveal>
+          <q>eu comer caneta</q>
+          <em class="diddy">★★★★</em>
+          <span>- Rafael</span>
+        </div>
+        <div class="rec" data-reveal>
+          <q>Sou idoso</q>
+          <em class="diddy">★★★★★</em>
+          <span>- Torcedor do santos</span>
         </div>
       </div>
-      <div>
-        <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStackedBottom" data-bs-slide="prev">
-          <span class="carousel-icon-prev" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="btn-icon btn-sm" type="button" data-bs-target="#carouselStackedBottom" data-bs-slide="next">
-          <span class="carousel-icon-next" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+    </section>
+
+    <article class="separa location-intro" data-reveal>
+      <img src="resenhatemhora.png" class="lula" alt="Arte de destaque Fatal Tenis" loading="lazy">
+      <section class="hero">
+        <img src="image-removebg-preview.png" class="marquinha" data-parallax alt="">
+        <div class="conteudo">
+          <h1>Fique por dentro de tudo</h1>
+          <p>Nossa localização abaixo</p>
+        </div>
+      </section>
+    </article>
+
+    <section class="location-section" id="local">
+      <div class="location-card" data-reveal>
+        <div class="location-heading"><h2>Nossa Localização</h2></div>
+        <div id="mapa" aria-label="Mapa com a localização da Fatal Tenis"></div>
       </div>
-    </div>
-</article>
-  <section class="hero">
-    <img src="image-removebg-preview.png" class="marquinha" alt="">
-    <div class="conteudo">
-  <h1>Encontre o calçado que vai entrar no seu carrinho</h1>
-      <p>Seu sapato ´seu primeiro passa</p>
-</div>
+    </section>
+  </main>
 
-  </section>
-  <br>
-  <br>
-  <br>
-  <br>
+  <footer class="site-footer">
+    <span>&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
+    <a href="#inicio">Voltar ao topo ↑</a>
+  </footer>
 
-  <div class="titu">
-    <h1>Nossos comentários</h1>
-  </div>
-<div class="ineedaherotogrid" id="diva">
-<div class="rec">
-  <q>O CARA TEM EDELCIO ESCRITO NO CPF KKKKKKKK</q>
-  <em class="diddy">★★★★★</em>
-  <span>-@naoeoedelcio</span>
-</div>
-<div class="rec">
-  <q>absolute cinema -- veio do cinema</q>
-  <em class="diddy">★★★★</em>
-  <span>-@naoeoedelcio</span>
-</div>
-<div class="rec">
-  <q>Who is this lil guy? 🙏🏻🙏🏻🙏🏻🙏🏻🙏🏻💔💔💔💔</q>
-  <em class="diddy">★★★★</em>
-  <span>- @naoeoedelcio</span>
-</div>
-<div class="rec">
-  <q>Gostei muito, pena q tinha edelcio escrito no logo</q>
-  <em class="diddy">★★★★</em>
-  <span>- @naoeoedelcio</span>
-</div><div class="rec">
-  <q>eu comer caneta</q>
-  <em class="diddy">★★★★</em>
-  <span>- Rafael</span>
-</div>
-<div class="rec">
-  <q>Sou idoso</q>
-  <em class="diddy">★★★★★</em>
-  <span>- Torcedor do santos</span>
-</div>
-
-</div>
-
-
-<article class="separa">
-
-  <img src="resenhatemhora.png" class="lula" alt="">
-  <section class="hero">
-    <img src="image-removebg-preview.png" class="marquinha" alt="">
-    <div class="conteudo">
-      <h1>Fique por dentro de tudo</h1>
-      <p>Nossa localização abaixo</p>
-    </div>
-  </section>
-</article>
-<br>
-<br>
-  <div class="container py-5" id="local">
-    <div class="card shadow-sm">
-      <div class="card-header bg-primary text-white">
-        <h5 class="mb-0">Nossa Localização</h5>
-      </div>
-      <div class="card-body p-0">
-        <div id="mapa"></div>
-      </div>
-    </div>
-  </div>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  
-  <script>
-  const lat = -22.3708;
-const lng = -46.9422;
-
-const map = L.map('mapa').setView([lat, lng], 14);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-L.marker([lat, lng]).addTo(map)
-    .bindPopup('<b>Estamos aqui!</b><br>Fatal Tenis')
-    .openPopup();
-  </script>
-  </div>
-</div>
-<br>
-<br><footer class="bg-body-tertiary text-center py-4 mt-auto border-top">
-  <div class="container">
-    <br>
-    <br>
-    <span class="text-body-secondary">&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
-    <br>
-    <br>
-  </div>
-</footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>
