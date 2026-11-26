@@ -302,8 +302,6 @@ body {
   width: min(1240px, calc(100% - 48px));
   min-height: 380px;
   margin: 0 auto 72px;
-  background: linear-gradient(135deg, #fff8f7, #fff);
-  border: 1px solid #f5e5e4;
   border-radius: 22px;
   scroll-margin-top: 88px;
 }
@@ -1116,6 +1114,23 @@ body {
   font-size: 12px;
 }
 
+.promotion-section {
+  margin-bottom: 12px;
+}
+
+.promotion-section h2 {
+  margin: 0;
+  padding-bottom: 10px;
+  color: var(--fatal-ink);
+  border-bottom: 1px solid #e7dada;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+}
+
+.promotion-section .product-grid {
+  margin-top: 16px;
+}
+
 .product-grid > .product-card {
   display: flex;
   min-height: 100%;
@@ -1172,6 +1187,38 @@ body {
 
 .product-grid .card-text {
   margin-bottom: 20px;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 0 0 16px;
+  color: var(--fatal-red);
+  font-family: Arial, sans-serif;
+  animation: price-fade-in 320ms ease-out both;
+}
+
+.price-currency {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.product-price strong {
+  font-size: 21px;
+  line-height: 1;
+}
+
+@keyframes price-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .product-grid .btn-solid {
@@ -1987,6 +2034,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .product-price {
+    animation: none;
+  }
+
   .shoe-line-viewport {
     scroll-behavior: auto;
   }

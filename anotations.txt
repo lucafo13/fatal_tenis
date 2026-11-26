@@ -1,0 +1,13 @@
+  "edelcioplusex.jpeg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBZqSzb_zzThRnHmuNbsciECuQ3png3U27Sg&s",
+  "https://m.media-amazon.com/images/I/41H-VbPAbDL._AC_SY900_.jpg",
+  "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+  "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400",
+  "https://images.unsplash.com/photo-1605812860427-4024433a70fd?w=400",
+  "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400",
+  "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW_eyqeFH3u9dpdi4vq2iqTZoB6-3eL9OzmQ&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz-QmiE_QizkXWKaPzywIJMbw0LBV_GWZBUQ&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-cktMEISl24dgsG_GBO9F4RQh58ZpiQa85Q&s",
+  "https://www.fatosdesconhecidos.com.br/wp-content/uploads/2015/01/286.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB1GKA-1qneKGGhnUMl6NP_R1LOl2VuaEf8A&s"

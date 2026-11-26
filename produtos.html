@@ -54,12 +54,12 @@
             <circle cx="10.8" cy="10.8" r="6.8"></circle>
             <path d="m16 16 5 5"></path>
           </svg>
-          <input id="product-search" type="search" placeholder="Buscar um modelo" autocomplete="off">
+          <input id="product-search" type="search" class="search" placeholder="Buscar um modelo" autocomplete="off">
         </label>
       </div>
 
-      <p class="catalog-results" id="catalog-results" aria-live="polite"></p>
-      <div class="product-grid" id="product-grid">
+      <div id="product-catalog">
+        <div class="product-grid list" id="product-grid">
         <article class="card product-card" data-category="tenis" data-name="Jordan vermelho e preto">
           <div class="product-image-wrap">
             <span class="product-index">01</span>
@@ -69,11 +69,12 @@
             <span class="product-type">Tênis · cano alto</span>
             <h3 class="card-title">Jordan vermelho e preto</h3>
             <p class="card-text">Tênis de cano alto nas cores vermelho, preto e branco.</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>399,90</strong></p>
             <button class="btn-solid" type="button" data-add-to-cart data-product-name="Jordan vermelho e preto">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
           </div>
         </article>
 
-        <article class="card product-card" data-category="salto" data-name="Salto azul metalizado">
+        <article class="card product-card" data-category="salto" data-name="Salto azul">
           <div class="product-image-wrap">
             <span class="product-index">02</span>
             <img class="card-img-top" src="resenha.png" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
@@ -82,12 +83,103 @@
             <span class="product-type">Salto · azul</span>
             <h3 class="card-title">Salto azul</h3>
             <p class="card-text">Salto alto azul metalizado com tiras delicadas.</p>
-            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Salto azul metalizado">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+            <p class="product-price"><span class="price-currency">R$</span><strong>219,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Salto azul">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
           </div>
         </article>
+        <article class="card product-card" data-category="salto" data-name="Anti chuca">
+          <div class="product-image-wrap">
+            <span class="product-index">03</span>
+            <img class="card-img-top" src="https://www.fatosdesconhecidos.com.br/wp-content/uploads/2015/01/286.jpg" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">sapato ne</span>
+            <h3 class="card-title">Anti chuca</h3>
+            <p class="card-text">Proteção em dobro para pés.</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>89,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Anti chuca">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+        <article class="card product-card" data-category="salto" data-name="PãoTufa">
+          <div class="product-image-wrap">
+            <span class="product-index">04</span>
+            <img class="card-img-top" src="https://m.media-amazon.com/images/I/41H-VbPAbDL._AC_SY900_.jpg" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">sapato ne</span>
+            <h3 class="card-title">PãoTufa</h3>
+            <p class="card-text">Sapato para comer ne?</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>129,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="PãoTufa">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+        <article class="card product-card" data-category="salto" data-name="Havavelha">
+          <div class="product-image-wrap">
+            <span class="product-index">05</span>
+            <img class="card-img-top" src="https://ae-pic-a1.aliexpress-media.com/kf/S7ad95e8c87ff474da92c2c7e09c8bf52c.jpg" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">Salto · azul</span>
+            <h3 class="card-title">Havavelha</h3>
+            <p class="card-text">Que acerto tulhão</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>59,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Havavelha">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+        <article class="card product-card" data-category="salto" data-name="Havavelha">
+          <div class="product-image-wrap">
+            <span class="product-index">06</span>
+            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz-QmiE_QizkXWKaPzywIJMbw0LBV_GWZBUQ&s" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">Salto · azul</span>
+            <h3 class="card-title">Havavelha</h3>
+            <p class="card-text">Que acerto tulhão</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>59,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Havavelha">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+        <article class="card product-card" data-category="salto" data-name="Havavelha">
+          <div class="product-image-wrap">
+            <span class="product-index">07</span>
+            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz-QmiE_QizkXWKaPzywIJMbw0LBV_GWZBUQ&s" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">Salto · azul</span>
+            <h3 class="card-title">Havavelha</h3>
+            <p class="card-text">Que acerto tulhão</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>59,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Havavelha">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+        <article class="card product-card" data-category="salto" data-name="Havavelha">
+          <div class="product-image-wrap">
+            <span class="product-index">08</span>
+            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz-QmiE_QizkXWKaPzywIJMbw0LBV_GWZBUQ&s" alt="Salto alto azul metalizado com tiras delicadas" loading="lazy">
+          </div>
+          <div class="card-body">
+            <span class="product-type">Salto · azul</span>
+            <h3 class="card-title">Havavelha</h3>
+            <p class="card-text">Que acerto tulhão</p>
+            <p class="product-price"><span class="price-currency">R$</span><strong>59,90</strong></p>
+            <button class="btn-solid" type="button" data-add-to-cart data-product-name="Havavelha">Adicionar ao carrinho <span aria-hidden="true">+</span></button>
+          </div>
+        </article>
+        
+        <p class="catalog-results" id="catalog-results" aria-live="polite"></p>
+        <section class="promotion-section" id="promocoes" aria-labelledby="promotion-title">
+          <div class="titu">
+            <h1>Promoções</h1>
+          </div>
+          <div class="product-grid list" id="promotion-grid">
+            <!-- Adicione cards .product-card com data-name e data-category para incluir na busca e nos filtros. -->
+          </div>
+        </section>
+        </div>
       </div>
       <p class="catalog-empty" id="catalog-empty" hidden>Nenhum produto encontrado. Tente outra busca ou filtro.</p>
     </section>
+
   </main>
 
   <div id="lilcarx" class="cart-panel" aria-hidden="true">
@@ -112,8 +204,9 @@
     <span>&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
     <a href="#">Voltar ao topo ↑</a>
   </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
   <script src="home.js"></script>
   <script src="produtos.js"></script>
+
 </body>
 </html>

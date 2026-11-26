@@ -1,9 +1,9 @@
-const productGrid = document.querySelector("#product-grid");
+const catalogSection = document.querySelector(".catalog-section");
+const promotionSection = document.querySelector("#promocoes");
 const searchInput = document.querySelector("#product-search");
 const filterButtons = document.querySelectorAll("[data-filter]");
 const resultCount = document.querySelector("#catalog-results");
 const emptyCatalogMessage = document.querySelector("#catalog-empty");
-const productCards = Array.from(document.querySelectorAll(".product-card"));
 const cartItemsList = document.querySelector("#lilcars");
 const cartQuantity = document.querySelector("#quan");
 const cartCount = document.querySelector("#cart-count");
@@ -13,6 +13,20 @@ const contactLink = document.querySelector("#end");
 const cartStorageKey = "fatal-tenis-cart";
 let activeFilter = "todos";
 let cartItems = [];
+
+const listOptions = {
+  valueNames: [
+    { data: ["name", "category"] },
+    "product-type",
+    "card-title",
+    "card-text"
+  ]
+};
+const productList = new List("product-catalog", listOptions);
+const promotionList = document.querySelector("#promotion-grid .product-card")
+  ? new List("promocoes", listOptions)
+  : null;
+const catalogLists = promotionList ? [productList, promotionList] : [productList];
 
 try {
   const savedCart = window.localStorage.getItem(cartStorageKey);
@@ -29,16 +43,17 @@ try {
 }
 
 function filterProducts() {
-  const searchTerm = searchInput.value.trim().toLocaleLowerCase("pt-BR");
-  let visibleCount = 0;
+  const searchTerm = searchInput.value.trim();
 
-  productCards.forEach((card) => {
-    const matchesCategory = activeFilter === "todos" || card.dataset.category === activeFilter;
-    const matchesSearch = card.dataset.name.toLocaleLowerCase("pt-BR").includes(searchTerm);
-    const isVisible = matchesCategory && matchesSearch;
-    card.hidden = !isVisible;
-    if (isVisible) visibleCount += 1;
+  catalogLists.forEach((list) => {
+    list.search(searchTerm);
+    list.filter((item) => activeFilter === "todos" || item.values().category === activeFilter);
   });
+
+  const visibleCount = catalogLists.reduce((count, list) => count + list.matchingItems.length, 0);
+  if (promotionList) {
+    promotionSection.hidden = promotionList.matchingItems.length === 0;
+  }
 
   resultCount.textContent = `${visibleCount} ${visibleCount === 1 ? "modelo encontrado" : "modelos encontrados"}`;
   emptyCatalogMessage.hidden = visibleCount > 0;
@@ -126,7 +141,7 @@ filterButtons.forEach((button) => {
 
 searchInput.addEventListener("input", filterProducts);
 
-productGrid.addEventListener("click", (event) => {
+catalogSection.addEventListener("click", (event) => {
   const addButton = event.target.closest("[data-add-to-cart]");
   if (!addButton) return;
 
