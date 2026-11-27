@@ -15,6 +15,8 @@
 
 </head>
 <body>
+  <div class="page-veil" aria-hidden="true"><img src="image-removebg-preview.png" class="marquinha" alt=""><span>FATAL TENIS</span></div>
+  <div id="swup" class="transition-scene" data-page-title="Finalizar compra — Fatal Tenis">
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
     <nav class="navbar" aria-label="Navegação principal">
@@ -41,14 +43,29 @@
     <div class="titu contact-title" data-reveal>
       <h1>Finalizar sua compra</h1>
     </div>
-    <p class="contact-hint">Preencha seus dados e conclua a compra!</p>
+    <p class="contact-hint">Confira o pedido, informe a entrega e escolha uma forma de pagamento.</p>
 
-    <section class="separa contact-layout" aria-label="Envie uma mensagem para a Fatal Tenis">
-        
-        <img src="35034.png" class="lula contact-art" alt="Sapato azul de salto alto" data-reveal>
-        <form class="form" id="formu" data-reveal>
+    <section class="contact-layout checkout-layout" aria-label="Resumo do pedido e dados de pagamento">
+      <aside class="checkout-order" data-reveal>
+          <div class="checkout-summary" id="checkout-summary" aria-live="polite">
+            <strong>Resumo da compra</strong>
+            <ul id="checkout-items"></ul>
+            <div class="checkout-totals">
+              <div><span>Subtotal</span><strong id="checkout-subtotal">R$ 0,00</strong></div>
+              <div><span>Frete</span><span id="checkout-shipping">A confirmar</span></div>
+              <div class="checkout-grand-total"><span>Total</span><strong id="checkout-total">A confirmar</strong></div>
+            </div>
+          </div>
+          <p class="checkout-empty" id="checkout-empty" hidden>
+            Sua sacola está vazia. <a href="produtos.html">Voltar aos produtos</a>
+          </p>
+          <p class="checkout-order-note">O frete e o total final são confirmados com o endereço de entrega.</p>
+          <img src="35034.png" class="contact-art" alt="Imagem ilustrativa">
+      </aside>
+      <form class="form checkout-form" id="formu" data-reveal>
+          <h2 class="checkout-section-title">Dados para entrega</h2>
           <div class="form-group">
-            <label for="nome">Nome de usuário</label>
+            <label for="nome">Nome completo</label>
             <input type="text" id="nome" name="nome" placeholder="Seu nome aqui" class="form-control" autocomplete="name" required>
           </div>
           <div class="form-group">
@@ -71,9 +88,63 @@
             <label for="endereco">Endereço</label>
             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Seu endereço completo" autocomplete="street-address" required>
           </div>
-          <p class="form-status" id="email-status" role="status" aria-live="polite"></p>
-          <button type="submit" class="btn contact-submit">Enviar mensagem</button>
-        </form>
+          <fieldset class="payment-methods">
+            <legend>Forma de pagamento</legend>
+            <div class="payment-choices">
+              <label class="payment-option is-selected" aria-expanded="true">
+                <input type="radio" name="forma-pagamento" value="pix" checked>
+                <span><strong>Pix</strong><small>QR Code</small></span>
+              </label>
+              <label class="payment-option" aria-expanded="false">
+                <input type="radio" name="forma-pagamento" value="cartao">
+                <span><strong>Cartão</strong><small>Crédito</small></span>
+              </label>
+              <label class="payment-option" aria-expanded="false">
+                <input type="radio" name="forma-pagamento" value="boleto">
+                <span><strong>Boleto</strong><small>Linha digitável</small></span>
+              </label>
+              <label class="payment-option payment-option--unavailable" aria-expanded="false">
+                <input type="radio" name="forma-pagamento" value="cruzeiros" disabled>
+                <span><strong>Cruzeiros</strong><small>Indisponível</small></span>
+              </label>
+            </div>
+
+            <section class="payment-panel pix-panel" data-payment-panel="pix" aria-labelledby="pix-title">
+              <div class="pix-code" role="img" aria-label="Ilustração de QR Code demonstrativo, sem valor para pagamento">
+             <img src="extended.svg" alt="">
+                <span>PRÉVIA</span>
+              </div>
+              <div>
+                <h3 id="pix-title">Pagamento por Pix</h3>
+                <p>O QR Code real e o código Pix aparecem quando uma cobrança segura estiver configurada.</p>
+                <button type="button" class="payment-action" disabled>Pix ainda não disponível</button>
+              </div>
+            </section>
+
+            <section class="payment-panel card-panel" data-payment-panel="cartao" aria-labelledby="card-title" hidden>
+              <h3 id="card-title">Cartão de crédito</h3>
+              <p class="payment-panel-note">Prévia dos campos. Não digite dados reais: esta página não está conectada a um checkout seguro.</p>
+              <div class="card-fields">
+                <label>Nome no cartão<input type="text" placeholder="Disponível após integração" disabled></label>
+                <label>Número do cartão<input type="text" placeholder="•••• •••• •••• ••••" disabled></label>
+                <div>
+                  <label>Validade<input type="text" placeholder="MM/AA" disabled></label>
+                  <label>CVV<input type="text" placeholder="•••" disabled></label>
+                </div>
+              </div>
+            </section>
+
+            <section class="payment-panel boleto-panel" data-payment-panel="boleto" aria-labelledby="boleto-title" hidden>
+              <h3 id="boleto-title">Pagamento por boleto</h3>
+              <p>A linha digitável e a data de vencimento serão geradas pelo provedor de pagamento.</p>
+              <div class="boleto-preview" aria-hidden="true"></div>
+              <button type="button" class="payment-action" disabled>Boleto ainda não disponível</button>
+            </section>
+          </fieldset>
+          <p class="checkout-demo-note">Prévia de checkout: nenhum pagamento é processado e seus dados não são enviados.</p>
+          <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
+          <button type="button" class="btn contact-submit checkout-submit" disabled>Pagamento ainda não configurado</button>
+      </form>
     </section>
   </main>
 
@@ -82,6 +153,9 @@
     <a href="#inicio">Voltar ao topo ↑</a>
   </footer>
 
-
+  </div>
+  <script src="home.js"></script>
+  <script src="produtos.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

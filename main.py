@@ -1,2 +1,2 @@
-import random
-print(random.choice(1, 100))
+for letter in "Moranguete":
+    print("hey")

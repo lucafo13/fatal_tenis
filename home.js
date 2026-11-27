@@ -1,3 +1,12 @@
+let cleanupSitePage;
+
+window.initializeSitePage = function initializeSitePage() {
+  cleanupSitePage?.();
+  const controller = new AbortController();
+  const signal = controller.signal;
+  let revealObserver = null;
+  let map = null;
+
 const header = document.querySelector(".site-header");
 const progress = document.querySelector(".scroll-progress");
 const menuToggle = document.querySelector(".menu-toggle");
@@ -100,14 +109,14 @@ window.addEventListener("scroll", () => {
     updateScrollEffects();
     scrollFrame = 0;
   });
-}, { passive: true });
+}, { passive: true, signal });
 
 window.addEventListener("resize", () => {
   refreshPathStory();
   updateScrollEffects();
-});
+}, { signal });
 pathStoryTrack?.querySelectorAll("img").forEach((image) => {
-  image.addEventListener("load", refreshPathStory, { once: true });
+  image.addEventListener("load", refreshPathStory, { once: true, signal });
 });
 refreshPathStory();
 updateScrollEffects();
@@ -126,12 +135,12 @@ if (menuToggle && navLinks) {
     menuToggle.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
     navLinks.classList.toggle("is-open", !isOpen);
     document.body.classList.toggle("menu-open", !isOpen);
-  });
+  }, { signal });
 
-  navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu, { signal }));
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeMenu();
-  });
+  }, { signal });
 }
 
 const cartToggle = document.querySelector("#lilcar");
@@ -163,17 +172,17 @@ if (cartToggle && cartPanel) {
       document.body.classList.remove("menu-open");
     }
     setCartOpen(!cartPanel.classList.contains("active"));
-  });
+  }, { signal });
 
   cartCloseButtons.forEach((button) => {
-    button.addEventListener("click", () => setCartOpen(false));
+    button.addEventListener("click", () => setCartOpen(false), { signal });
   });
 
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && cartPanel.classList.contains("active")) {
       setCartOpen(false);
     }
-  });
+  }, { signal });
 }
 
 document.querySelectorAll("[data-scroll]").forEach((button) => {
@@ -186,7 +195,7 @@ document.querySelectorAll("[data-scroll]").forEach((button) => {
     const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
     const distance = slide ? slide.getBoundingClientRect().width + gap : track.clientWidth;
     track.scrollBy({ left: distance * direction, behavior: reduceMotion ? "auto" : "smooth" });
-  });
+  }, { signal });
 });
 
 document.querySelectorAll(".products-content .card, .contact-title").forEach((element) => {
@@ -204,7 +213,7 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
     }
   });
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+  revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add("is-visible");
@@ -217,13 +226,20 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
 
 if (window.L && document.querySelector("#mapa")) {
   const coordinates = [-22.3708, -46.9422];
-  const map = L.map("mapa", { scrollWheelZoom: false }).setView(coordinates, 14);
+  map = window.L.map("mapa", { scrollWheelZoom: false }).setView(coordinates, 14);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
 
-  L.marker(coordinates).addTo(map)
+  window.L.marker(coordinates).addTo(map)
     .bindPopup("<b>Estamos aqui!</b><br>Fatal Tenis")
     .openPopup();
 }
+
+cleanupSitePage = () => {
+  controller.abort();
+  revealObserver?.disconnect();
+  map?.remove();
+};
+};

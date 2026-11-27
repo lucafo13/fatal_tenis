@@ -297,3 +297,100 @@ body{
 .cartzin{
     color: #f04444;
 }
+.transition-scene {
+  min-height: 100vh;
+  opacity: 1;
+  transition: opacity 340ms ease;
+}
+
+html.is-animating .transition-scene {
+  opacity: .2;
+}
+
+.page-veil {
+  position: fixed;
+  z-index: 5000;
+  inset: 0;
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+  color: #f04444;
+background:
+    radial-gradient(ellipse at 50% 120%, rgb(255 255 255 / 45%), transparent 55%),
+    linear-gradient(135deg, #F9E0E0 0%, #FDF5F5 52%, #FEFAFA 100%);
+
+   pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 420ms cubic-bezier(.76, 0, .24, 1);
+}
+
+.page-veil::before,
+.page-veil::after {
+  position: absolute;
+  width: min(74vw, 680px);
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  content: "";
+}
+
+.page-veil::before {
+  transform: scale(.72) rotate(-24deg);
+  box-shadow:
+    0 0 0 34px rgb(255 255 255 / 4%),
+    0 0 0 92px rgb(255 255 255 / 3%);
+}
+
+.page-veil::after {
+  width: min(48vw, 420px);
+  border-style: dashed;
+  transform: rotate(18deg);
+}
+
+.page-veil.is-active::before {
+  animation: veil-orbit 2.8s ease-in-out infinite alternate;
+}
+
+.page-veil.is-active::after {
+  animation: veil-orbit-reverse 2s linear infinite;
+}
+
+.page-veil span {
+  position: relative;
+  z-index: 1;
+  font-family: Arial, sans-serif;
+  font-size: clamp(20px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: .34em;
+  text-indent: .34em;
+}
+
+.page-veil.is-active {
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+@keyframes veil-orbit {
+  to {
+    transform: scale(.88) rotate(24deg);
+  }
+}
+
+@keyframes veil-orbit-reverse {
+  to {
+    transform: rotate(378deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-scene,
+  .page-veil {
+    transition-duration: 1ms;
+  }
+
+  .page-veil.is-active::before,
+  .page-veil.is-active::after {
+    animation: none;
+  }
+}
