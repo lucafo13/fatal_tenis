@@ -14,24 +14,26 @@
   <link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <div class="page-veil" aria-hidden="true"><span>FATAL TENIS</span></div>
+  <div class="page-veil"><span>FATAL TENIS</span></div>
   <div id="swup" class="transition-scene" data-page-title="Contato — Fatal Tenis">
-  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="scroll-progress"></div>
 
   <header class="site-header">
-    <nav class="navbar" aria-label="Navegação principal">
-      <a class="brand" href="index.html" aria-label="Fatal Tenis — início">
+    <nav class="navbar">
+      <a class="brand" href="index.html">
         <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Fatal Tenis">
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
-        <span></span><span></span>
+      <button class="menu-toggle" type="button">
+        <span class="menu-toggle-label visually-hidden">Abrir menu</span>
+        <span class="menu-toggle-bar menu-toggle-bar--first"></span>
+        <span class="menu-toggle-bar menu-toggle-bar--last"></span>
       </button>
       <div class="nav-links" id="site-menu">
         <a class="nav-link" href="index.html">Início</a>
         <a class="nav-link" href="produtos.html">Produtos</a>
         <a class="nav-link" href="index.html#comentarios">Comentários</a>
         <a class="nav-link" href="index.html#local">Localização</a>
-        <a class="nav-cta" href="contato.html" aria-current="page">Contato <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="contato.html">Contato <span>↗</span></a>
       </div>
     </nav>
   </header>
@@ -42,7 +44,7 @@
     </div>
     <p class="contact-hint">Dúvidas, sugestões ou outras informações? Preencha o formulário abaixo.</p>
 
-    <section class="separa contact-layout" aria-label="Envie uma mensagem para a Fatal Tenis">
+    <section class="separa contact-layout">
       <form class="form" id="formu" data-reveal>
         <div class="form-group">
           <label for="nome">Nome de usuário</label>
@@ -56,7 +58,7 @@
           <label for="msg">Mensagem</label>
           <textarea class="form-control" id="msg" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required></textarea>
         </div>
-        <p class="form-status" id="email-status" role="status" aria-live="polite"></p>
+        <p class="form-status" id="email-status"></p>
         <button type="submit" class="btn contact-submit">Enviar mensagem</button>
       </form>
 

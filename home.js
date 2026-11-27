@@ -1,5 +1,6 @@
 let cleanupSitePage;
 
+
 window.initializeSitePage = function initializeSitePage() {
   cleanupSitePage?.();
   const controller = new AbortController();
@@ -10,6 +11,7 @@ window.initializeSitePage = function initializeSitePage() {
 const header = document.querySelector(".site-header");
 const progress = document.querySelector(".scroll-progress");
 const menuToggle = document.querySelector(".menu-toggle");
+const menuToggleLabel = document.querySelector(".menu-toggle-label");
 const navLinks = document.querySelector(".nav-links");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const pathStory = document.querySelector("[data-path-story]");
@@ -123,16 +125,16 @@ updateScrollEffects();
 
 if (menuToggle && navLinks) {
   function closeMenu() {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menu");
+    menuToggle.classList.remove("is-open");
+    if (menuToggleLabel) menuToggleLabel.textContent = "Abrir menu";
     navLinks.classList.remove("is-open");
     document.body.classList.remove("menu-open");
   }
 
   menuToggle.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    menuToggle.setAttribute("aria-expanded", String(!isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+    const isOpen = navLinks.classList.contains("is-open");
+    menuToggle.classList.toggle("is-open", !isOpen);
+    if (menuToggleLabel) menuToggleLabel.textContent = isOpen ? "Abrir menu" : "Fechar menu";
     navLinks.classList.toggle("is-open", !isOpen);
     document.body.classList.toggle("menu-open", !isOpen);
   }, { signal });
@@ -152,8 +154,6 @@ if (cartToggle && cartPanel) {
 
   function setCartOpen(isOpen) {
     cartPanel.classList.toggle("active", isOpen);
-    cartPanel.setAttribute("aria-hidden", String(!isOpen));
-    cartToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("cart-open", isOpen);
 
     if (isOpen) {
@@ -166,8 +166,8 @@ if (cartToggle && cartPanel) {
   cartToggle.addEventListener("click", (event) => {
     event.preventDefault();
     if (menuToggle && navLinks && navLinks.classList.contains("is-open")) {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Abrir menu");
+      menuToggle.classList.remove("is-open");
+      if (menuToggleLabel) menuToggleLabel.textContent = "Abrir menu";
       navLinks.classList.remove("is-open");
       document.body.classList.remove("menu-open");
     }
@@ -239,6 +239,7 @@ if (window.L && document.querySelector("#mapa")) {
 
 cleanupSitePage = () => {
   controller.abort();
+  document.body.classList.remove("menu-open", "cart-open");
   revealObserver?.disconnect();
   map?.remove();
 };

@@ -15,26 +15,28 @@
 
 </head>
 <body>
-  <div class="page-veil" aria-hidden="true"><img src="image-removebg-preview.png" class="marquinha" alt=""><span>FATAL TENIS</span></div>
+  <div class="page-veil"><img src="image-removebg-preview.png" class="marquinha" alt=""><span>FATAL TENIS</span></div>
   <div id="swup" class="transition-scene" data-page-title="Finalizar compra — Fatal Tenis">
-  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="scroll-progress"></div>
   <header class="site-header">
-    <nav class="navbar" aria-label="Navegação principal">
-      <a class="brand" href="index.html" aria-label="Fatal Tenis — início">
+    <nav class="navbar">
+      <a class="brand" href="index.html">
         <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Fatal Tenis">
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
-        <span></span><span></span>
+      <button class="menu-toggle" type="button">
+        <span class="menu-toggle-label visually-hidden">Abrir menu</span>
+        <span class="menu-toggle-bar menu-toggle-bar--first"></span>
+        <span class="menu-toggle-bar menu-toggle-bar--last"></span>
       </button>
       <div class="nav-links" id="site-menu">
         <a class="nav-link" href="index.html">Início</a>
-        <a class="nav-link" href="produtos.html" aria-current="page">Produtos</a>
+        <a class="nav-link" href="produtos.html">Produtos</a>
         <a class="nav-link" href="index.html#comentarios">Comentários</a>
         <a class="nav-link" href="index.html#local">Localização</a>
-        <button class="nav-cta nav-cart" id="lilcar" type="button" aria-controls="lilcarx" aria-expanded="false">
+        <button class="nav-cta nav-cart" id="lilcar" type="button">
           Carrinho <span class="cart-count" id="cart-count">0</span>
         </button>
-        <a class="nav-cta" href="contato.html">Contato <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="contato.html">Contato <span>↗</span></a>
       </div>
     </nav>
   </header>
@@ -45,15 +47,15 @@
     </div>
     <p class="contact-hint">Confira o pedido, informe a entrega e escolha uma forma de pagamento.</p>
 
-    <section class="contact-layout checkout-layout" aria-label="Resumo do pedido e dados de pagamento">
+    <section class="contact-layout checkout-layout">
       <aside class="checkout-order" data-reveal>
-          <div class="checkout-summary" id="checkout-summary" aria-live="polite">
+          <div class="checkout-summary" id="checkout-summary">
             <strong>Resumo da compra</strong>
             <ul id="checkout-items"></ul>
             <div class="checkout-totals">
               <div><span>Subtotal</span><strong id="checkout-subtotal">R$ 0,00</strong></div>
-              <div><span>Frete</span><span id="checkout-shipping">A confirmar</span></div>
-              <div class="checkout-grand-total"><span>Total</span><strong id="checkout-total">A confirmar</strong></div>
+              <div><span>Frete</span><strong id="frete">A confirmar</strong></div>
+              <div class="checkout-grand-total"><span>Total</span><strong id="total">A confirmar</strong></div>
             </div>
           </div>
           <p class="checkout-empty" id="checkout-empty" hidden>
@@ -62,7 +64,7 @@
           <p class="checkout-order-note">O frete e o total final são confirmados com o endereço de entrega.</p>
           <img src="35034.png" class="contact-art" alt="Imagem ilustrativa">
       </aside>
-      <form class="form checkout-form" id="formu" data-reveal>
+      <form class="form checkout-form" id="formu-compra" data-reveal>
           <h2 class="checkout-section-title">Dados para entrega</h2>
           <div class="form-group">
             <label for="nome">Nome completo</label>
@@ -91,71 +93,86 @@
           <fieldset class="payment-methods">
             <legend>Forma de pagamento</legend>
             <div class="payment-choices">
-              <label class="payment-option is-selected" aria-expanded="true">
+              <label class="payment-option is-selected">
                 <input type="radio" name="forma-pagamento" value="pix" checked>
                 <span><strong>Pix</strong><small>QR Code</small></span>
               </label>
-              <label class="payment-option" aria-expanded="false">
+              <label class="payment-option">
                 <input type="radio" name="forma-pagamento" value="cartao">
                 <span><strong>Cartão</strong><small>Crédito</small></span>
               </label>
-              <label class="payment-option" aria-expanded="false">
+              <label class="payment-option">
                 <input type="radio" name="forma-pagamento" value="boleto">
                 <span><strong>Boleto</strong><small>Linha digitável</small></span>
               </label>
-              <label class="payment-option payment-option--unavailable" aria-expanded="false">
-                <input type="radio" name="forma-pagamento" value="cruzeiros" disabled>
-                <span><strong>Cruzeiros</strong><small>Indisponível</small></span>
+              <label class="payment-option">
+                <input type="radio" name="forma-pagamento" value="cruzeiros">
+                <span><strong>Cruzeiros</strong><small>Viagem no tempo</small></span>
               </label>
             </div>
 
-            <section class="payment-panel pix-panel" data-payment-panel="pix" aria-labelledby="pix-title">
-              <div class="pix-code" role="img" aria-label="Ilustração de QR Code demonstrativo, sem valor para pagamento">
-             <img src="extended.svg" alt="">
+            <section class="payment-panel pix-panel" data-payment-panel="pix">
+              <div class="pix-code">
+             <img src="extended.svg" alt="Ilustração de QR Code demonstrativo, sem valor para pagamento">
                 <span>PRÉVIA</span>
               </div>
               <div>
                 <h3 id="pix-title">Pagamento por Pix</h3>
                 <p>O QR Code real e o código Pix aparecem quando uma cobrança segura estiver configurada.</p>
-                <button type="button" class="payment-action" disabled>Pix ainda não disponível</button>
+                <button type="button" class="payment-action" id="copix">Copiar código Pix</button>
               </div>
             </section>
 
-            <section class="payment-panel card-panel" data-payment-panel="cartao" aria-labelledby="card-title" hidden>
+            <section class="payment-panel card-panel" data-payment-panel="cartao" hidden>
               <h3 id="card-title">Cartão de crédito</h3>
-              <p class="payment-panel-note">Prévia dos campos. Não digite dados reais: esta página não está conectada a um checkout seguro.</p>
+              <p class="payment-panel-note">Prévia dos campos. vai digitando vai</p>
               <div class="card-fields">
-                <label>Nome no cartão<input type="text" placeholder="Disponível após integração" disabled></label>
-                <label>Número do cartão<input type="text" placeholder="•••• •••• •••• ••••" disabled></label>
+                <label>Nome no cartão<input type="text" placeholder="Nome aqui" ></label>
+                <label>Número do cartão<input type="text" placeholder="•••• •••• •••• ••••" ></label>
                 <div>
-                  <label>Validade<input type="text" placeholder="MM/AA" disabled></label>
-                  <label>CVV<input type="text" placeholder="•••" disabled></label>
+                  <label>Validade<input type="text" placeholder="MM/AA" ></label>
+                  <label>CVV<input type="text" placeholder="•••" ></label>
                 </div>
               </div>
             </section>
 
-            <section class="payment-panel boleto-panel" data-payment-panel="boleto" aria-labelledby="boleto-title" hidden>
+            <section class="payment-panel boleto-panel" data-payment-panel="boleto" hidden>
               <h3 id="boleto-title">Pagamento por boleto</h3>
               <p>A linha digitável e a data de vencimento serão geradas pelo provedor de pagamento.</p>
-              <div class="boleto-preview" aria-hidden="true"></div>
-              <button type="button" class="payment-action" disabled>Boleto ainda não disponível</button>
+              <div class="boleto-preview"></div>
+              <a style="padding: 15px 20px ; text-decoration: none;" href="fatal_tenis_malcriadinha_da_casa.pdf" target="_blank" class="payment-action" >Abir o boleto</a>
+            </section>
+
+            <section class="payment-panel" data-payment-panel="cruzeiros" hidden>
+              <h3 id="cruzeiros-title">Pagamento em Cruzeiros</h3>
+              <p>Arremesse os cruzados na bolsa do motoboy e pessa a malcriadinha da casa.</p>
             </section>
           </fieldset>
-          <p class="checkout-demo-note">Prévia de checkout: nenhum pagamento é processado e seus dados não são enviados.</p>
-          <p class="form-status" id="checkout-status" role="status" aria-live="polite"></p>
-          <button type="button" class="btn contact-submit checkout-submit" disabled>Pagamento ainda não configurado</button>
+          <p class="form-status" id="checkout-status"></p>
+          <button type="submit" class="btn contact-submit checkout-submit " >Finalizar finalmente</button>
       </form>
     </section>
   </main>
 
+  <dialog class="payment-success-dialog" id="payment-success-dialog">
+    <form method="dialog" class="payment-success-dialog__close-form">
+      <button type="submit" class="payment-success-dialog__close" onclick="setTimeout(() => window.location.href='index.html', 1500)"><span class="visually-hidden">Fechar</span>×</button>
+    </form>
+    <div class="payment-success-dialog__content" id="conteudo">
+
+    </div>
+  </dialog>
+
   <footer class="site-footer">
     <span>&copy; 2026 Fatal Tenis. Todos os direitos reservados.</span>
     <a href="#inicio">Voltar ao topo ↑</a>
+
   </footer>
 
   </div>
   <script src="home.js"></script>
   <script src="produtos.js"></script>
   <script src="site.js"></script>
+  <script src="cep.js"></script>
 </body>
 </html>

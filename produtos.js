@@ -89,7 +89,6 @@ function addSizeSelector(card) {
 
   const select = document.createElement("select");
   select.dataset.productSize = "";
-  select.setAttribute("aria-label", `Numeração para ${name}`);
 
   const placeholder = document.createElement("option");
   placeholder.value = "";
@@ -224,7 +223,11 @@ function filterProducts() {
   const searchTerm = searchInput.value.trim();
 
   catalogLists.forEach((list) => {
-    list.search(searchTerm);
+    list.search(searchTerm, ["name", "category", "product-type", "card-title", "card-text"], (term, fields) => {
+      list.items.forEach((item) => {
+        item.found = fields.some((field) => matchesSearchValue(term, item.values()[field]));
+      });
+    });
     list.filter((item) => activeFilter === "todos" || item.values().category === activeFilter);
   });
 
@@ -235,6 +238,63 @@ function filterProducts() {
 
   resultCount.textContent = `${visibleCount} ${visibleCount === 1 ? "modelo encontrado" : "modelos encontrados"}`;
   emptyCatalogMessage.hidden = visibleCount > 0;
+}
+
+function normalizeSearchValue(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+}
+
+function isWithinOneEdit(searchTerm, candidate) {
+  if (Math.abs(searchTerm.length - candidate.length) > 1) return false;
+
+  let searchIndex = 0;
+  let candidateIndex = 0;
+  let edits = 0;
+
+  while (searchIndex < searchTerm.length && candidateIndex < candidate.length) {
+    if (searchTerm[searchIndex] === candidate[candidateIndex]) {
+      searchIndex += 1;
+      candidateIndex += 1;
+      continue;
+    }
+
+    edits += 1;
+    if (edits > 1) return false;
+    if (searchTerm.length > candidate.length) {
+      searchIndex += 1;
+    } else if (searchTerm.length < candidate.length) {
+      candidateIndex += 1;
+    } else {
+      searchIndex += 1;
+      candidateIndex += 1;
+    }
+  }
+
+  if (searchIndex < searchTerm.length || candidateIndex < candidate.length) edits += 1;
+  return edits <= 1;
+}
+
+function matchesSearchValue(term, value) {
+  const searchTerm = normalizeSearchValue(term);
+  const candidate = normalizeSearchValue(value);
+
+  if (!searchTerm || candidate.includes(searchTerm)) return true;
+  if (searchTerm.length < 5) return false;
+
+  for (let start = 0; start < candidate.length; start += 1) {
+    for (let length = searchTerm.length - 1; length <= searchTerm.length + 1; length += 1) {
+      const end = start + length;
+      if (end <= candidate.length && isWithinOneEdit(searchTerm, candidate.slice(start, end))) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 function getCartCounts() {
@@ -276,7 +336,6 @@ function renderCart() {
     removeButton.type = "button";
     removeButton.className = "cart-remove";
     removeButton.textContent = "Remover";
-    removeButton.setAttribute("aria-label", `Remover uma unidade de ${name}`);
     removeButton.addEventListener("click", () => {
       const itemIndex = cartItems.findIndex((cartItem) => (
         cartItem.name === name && cartItem.unitPrice === unitPrice && cartItem.size === size
@@ -298,7 +357,6 @@ function renderCart() {
     : "contato.html";
   contactLink.textContent = itemCount ? "Perguntar sobre os modelos" : "Falar com a Fatal";
   const arrow = document.createElement("span");
-  arrow.setAttribute("aria-hidden", "true");
   arrow.textContent = "↗";
   contactLink.append(arrow);
 }
@@ -319,7 +377,6 @@ filterButtons.forEach((button) => {
     filterButtons.forEach((filterButton) => {
       const isActive = filterButton === button;
       filterButton.classList.toggle("is-active", isActive);
-      filterButton.setAttribute("aria-pressed", String(isActive));
     });
     filterProducts();
   }, { signal });

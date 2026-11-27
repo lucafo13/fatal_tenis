@@ -15,23 +15,25 @@
 
 </head>
 <body>
-  <div class="page-veil" aria-hidden="true"><img src="image-removebg-preview.png" class="marquinha" alt=""><span>FATAL TENIS</span></div>
+  <div class="page-veil"><img src="image-removebg-preview.png" class="marquinha" alt=""><span>FATAL TENIS</span></div>
   <div id="swup" class="transition-scene" data-page-title="Fatal Tenis">
-  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="scroll-progress"></div>
   <header class="site-header">
-    <nav class="navbar" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Fatal Tenis — início">
+    <nav class="navbar">
+      <a class="brand" href="#inicio">
         <img src="logo fataltenis minimalista em vermelho【7†source】.png" alt="Fatal Tenis">
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Abrir menu">
-        <span></span><span></span>
+      <button class="menu-toggle" type="button">
+        <span class="menu-toggle-label visually-hidden">Abrir menu</span>
+        <span class="menu-toggle-bar menu-toggle-bar--first"></span>
+        <span class="menu-toggle-bar menu-toggle-bar--last"></span>
       </button>
       <div class="nav-links" id="site-menu">
         <a class="nav-link" href="#inicio">Início</a>
         <a class="nav-link" href="produtos.html">Produtos</a>
         <a class="nav-link" href="#comentarios">Comentários</a>
         <a class="nav-link" href="#local">Localização</a>
-        <a class="nav-cta" href="contato.html">Contato <span aria-hidden="true">↗</span></a>
+        <a class="nav-cta" href="contato.html">Contato <span>↗</span></a>
       </div>
     </nav>
   </header>
@@ -52,12 +54,12 @@
       <img src="Lula em destaque com design vermelho.png" class="lula" alt="Ilustração especial da Fatal Tenis">
     </article>
 
-    <section class="home-gallery" id="colecao" aria-label="Destaques da loja" data-reveal>
+    <section class="home-gallery" id="colecao" data-reveal>
       <div class="gallery-heading">
         <div class="titu"><h1>Destaques</h1></div>
         <div class="gallery-controls">
-          <button class="slider-button" type="button" data-scroll="prev" data-scroll-target="#galleryTrack" aria-label="Ver destaque anterior">←</button>
-          <button class="slider-button" type="button" data-scroll="next" data-scroll-target="#galleryTrack" aria-label="Ver próximo destaque">→</button>
+          <button class="slider-button" type="button" data-scroll="prev" data-scroll-target="#galleryTrack"><span class="visually-hidden">Ver destaque anterior</span>←</button>
+          <button class="slider-button" type="button" data-scroll="next" data-scroll-target="#galleryTrack"><span class="visually-hidden">Ver próximo destaque</span>→</button>
         </div>
       </div>
       <div class="gallery-track" id="galleryTrack">
@@ -73,37 +75,38 @@
       </div>
     </section>
 
-    <section class="shoe-line" aria-label="Alguns produtos da Fatal Tenis" data-reveal>
+    <section class="shoe-line" data-reveal>
       <div class="shoe-line-heading">
         <div class="titu"><h1>Alguns pares</h1></div>
         <div class="gallery-controls">
-          <button class="slider-button" type="button" data-scroll="prev" data-scroll-target="#shoeTrack" aria-label="Ver produto anterior">←</button>
-          <button class="slider-button" type="button" data-scroll="next" data-scroll-target="#shoeTrack" aria-label="Ver próximo produto">→</button>
+          <button class="slider-button" type="button" data-scroll="prev" data-scroll-target="#shoeTrack"><span class="visually-hidden">Ver produto anterior</span>←</button>
+          <button class="slider-button" type="button" data-scroll="next" data-scroll-target="#shoeTrack"><span class="visually-hidden">Ver próximo produto</span>→</button>
         </div>
       </div>
       <div class="shoe-line-viewport">
         <div class="shoe-line-track" id="shoeTrack">
           <article class="shoe-line-card">
             <img src="sapatoJordan.webp" alt="Tênis Jordan vermelho, preto e branco" loading="lazy">
-            <div><h2>Jordan vermelho</h2><a href="produtos.html">Ver produtos <span aria-hidden="true">↗</span></a></div>
+            <div><h2>Jordan vermelho</h2><a href="produtos.html">Ver produtos <span>↗</span></a></div>
           </article>
           <article class="shoe-line-card">
             <img src="sapatoJrodanO.jpg" alt="Tênis Jordan vermelho visto de perfil" loading="lazy">
-            <div><h2>Jordan de perfil</h2><a href="produtos.html">Ver produtos <span aria-hidden="true">↗</span></a></div>
+            <div><h2>Jordan de perfil</h2><a href="produtos.html">Ver produtos <span>↗</span></a></div>
           </article>
           <article class="shoe-line-card">
             <img src="resenha.png" alt="Salto alto azul metalizado" loading="lazy">
-            <div><h2>Salto azul</h2><a href="produtos.html">Ver produtos <span aria-hidden="true">↗</span></a></div>
+            <div><h2>Salto azul</h2><a href="produtos.html">Ver produtos <span>↗</span></a></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="path-story" data-path-story aria-label="O estilo Fatal Tenis em quatro passos">
+    <section class="path-story" data-path-story>
       <div class="path-story-stage">
         <div class="path-story-header">
           <span class="path-story-label"><i></i></span>
-          <span class="path-story-count"><b data-path-count>01</b><span> / 04</span></span>
+          <div class="titu"> Exclusivos</div>
+          <span class="path-story-count"><b data-path-count>01</b><span> / 07</span></span>
         </div>
         <div class="path-story-window">
           <div class="path-story-track">
@@ -111,7 +114,7 @@
               <span class="path-story-overline"></span>
               <h2><em></em></h2>
               <p></p>
-              <span class="path-story-cue"><b aria-hidden="true">→</b></span>
+              <span class="path-story-cue"><b>→</b></span>
             </div>
             <article class="path-story-card path-story-card-red">
               <span class="path-story-card-label">01</span>
@@ -131,11 +134,26 @@
             <article class="path-story-card path-story-card-finish">
               <span class="path-story-card-label">04</span>
               <div class="path-story-image"><span class="path-story-halo"></span><img src="image-removebg-preview.png" alt="Símbolo vermelho da Fatal Tenis" loading="lazy"></div>
-              <div class="path-story-caption"><h3></h3><p></p><a href="produtos.html" aria-label="Ver coleção"><span aria-hidden="true">↗</span></a></div>
+              <div class="path-story-caption"><h3></h3><p></p><a href="produtos.html"><span class="visually-hidden">Ver coleção</span><span>↗</span></a></div>
+            </article>
+            <article class="path-story-card path-story-card-finish path-story-card-finish-gold">
+              <span class="path-story-card-label">05</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="img/rata.webp" alt="Símbolo vermelho da Fatal Tenis" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p><a href="produtos.html"><span class="visually-hidden">Ver coleção</span><span>↗</span></a></div>
+            </article>
+            <article class="path-story-card path-story-card-finish path-story-card-finish-blue">
+              <span class="path-story-card-label">06</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="img/sapato6.webp" alt="Símbolo vermelho da Fatal Tenis" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p><a href="produtos.html">ver<span class="visually-hidden">Ver coleção</span><span>↗</span></a></div>
+            </article>
+            <article class="path-story-card path-story-card-finish path-story-card-finish-sage">
+              <span class="path-story-card-label">07</span>
+              <div class="path-story-image"><span class="path-story-halo"></span><img src="img/peixe.jpg" alt="Símbolo vermelho da Fatal Tenis" loading="lazy"></div>
+              <div class="path-story-caption"><h3></h3><p></p><a href="produtos.html"><span class="visually-hidden">Ver coleção</span><span>↗</span></a></div>
             </article>
           </div>
         </div>
-        <div class="path-story-progress" aria-hidden="true"><span data-path-progress></span></div>
+        <div class="path-story-progress"><span data-path-progress></span></div>
       </div>
     </section>
 
@@ -199,7 +217,7 @@
     <section class="location-section" id="local">
       <div class="location-card" data-reveal>
         <div class="location-heading"><h2>Nossa Localização</h2></div>
-        <div id="mapa" aria-label="Mapa com a localização da Fatal Tenis"></div>
+        <div id="mapa"></div>
       </div>
     </section>
   </main>
@@ -213,5 +231,6 @@
   <script src="home.js"></script>
   <script src="produtos.js"></script>
   <script src="site.js"></script>
+  <script src="carregar.js"></script>
 </body>
 </html>

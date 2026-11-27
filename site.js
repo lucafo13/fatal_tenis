@@ -108,14 +108,15 @@ function initializeCheckoutSummary() {
 }
 
 function initializeCheckoutPage(signal) {
-  const form = document.querySelector("#formu");
+  const form = document.querySelector(".checkout-form");
   const status = document.getElementById("checkout-status");
   if (!form || !status || !document.querySelector(".payment-methods")) return;
 
   const notes = {
-    pix: "Prévia do Pix selecionada. O QR Code real depende da configuração de uma cobrança.",
-    cartao: "Prévia do cartão selecionada. Não digite dados reais neste formulário.",
-    boleto: "Prévia do boleto selecionada. A linha digitável depende da configuração de uma cobrança."
+    pix: "Após enviar o pedido, você receberá um QR Code para pagamento via PIX.",
+    cartao: "Após enviar o pedido, você será redirecionado para o gateway de pagamento.",
+    boleto: "Após enviar o pedido, você receberá um boleto bancário para pagamento.",
+    cruzeiros: "Pagamento em Cruzeiros: sujeito à disponibilidade de uma máquina do tempo."
   };
   const paymentOptions = form.querySelectorAll('input[name="forma-pagamento"]');
   const paymentPanels = form.querySelectorAll("[data-payment-panel]");
@@ -125,7 +126,6 @@ function initializeCheckoutPage(signal) {
     paymentOptions.forEach((option) => {
       const choice = option.closest(".payment-option");
       choice?.classList.toggle("is-selected", option.checked);
-      choice?.setAttribute("aria-expanded", String(option.checked));
     });
     paymentPanels.forEach((panel) => {
       panel.hidden = panel.dataset.paymentPanel !== selected?.value;
@@ -141,7 +141,82 @@ function initializeCheckoutPage(signal) {
   }, { signal });
   updatePaymentNote();
 }
+const cpix = document.getElementById("copix");
+cpix?.addEventListener("click", async() =>{
+  try{
+    navigator.clipboard.writeText(`Quem gosta de periquita, dá um grito aí
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Joga a mãozinha na palma da mão
+​Vai
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Uma águia passou pelo meu quintal
+​Num vento muito forte, querendo namorar
+​Acho que tá querendo a minha periquita
+​Que há muito tempo, eu tô doida pra dar
+​Uma águia passou pelo meu quintal
+​Num vento muito forte, querendo namorar
+​Acho que tá querendo a minha periquita
+​Que há muito tempo, eu tô doida pra dar
+​Já passou duas semana e essa águia sumiu
+​Eu não ouvi o grito dela por aqui
+​E agora, o quе é que eu faço pra dar minha periquita?
+​Que há muito tеmpo, não dá uma voadinha
+​Vou dar minha periquita pro Gusttavo Lima
+​Que tá doido pra ficar solteiro
+​Eu não vou dar pro Bolsonaro
+​Ele pode metralhar minha periquita
+​Vou dar minha periquita pro Boninho
+​Pra me colocar no Big Brother
+​Eu não vou dar pro Luan Santana
+​Ele pode não gostar de periquita
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​É Bonde do Forró, toma
+​Uma águia passou pelo meu quintal
+​Num vento muito forte, querendo namorar
+​Acho que tá querendo a minha periquita
+​Que há muito tempo, eu tô doida pra dar
+​Uma águia passou pelo meu quintal
+​Num vento muito forte, querendo namorar
+​Acho que tá querendo a minha periquita
+​Que há muito tempo, eu tô doida pra dar
+​Já passou duas semana e essa águia sumiu
+​Eu não ouvi o grito dela por aqui
+​E agora, o quе é que eu faço pra dar minha periquita?
+​Que há muito tеmpo, não dá uma voadinha
+​Vou dar minha periquita pro Fábio de Melo
+​Que pega periquita escondido
+​Eu não vou dar pro DJ Ivis
+​Ele pode bater na periquita
+​Vou dar minha periquita pro Pabllo Vittar (e o quê?)
+​Que guarda uma rolinha escondido
+​Eu não vou dar para o Lula (tchau, querida)
+​Ele pode roubar minha periquita
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem vai querer a minha periquita
+​A minha periquita, a minha periquita?
+​Quem quer minha periquita, dá um grito aí
+​Vai!
+`)
+cpix.textContent = "Código Pix copiado!";
+  }
+  catch(err){
 
+  }
+})
 function initializeContactForm(signal) {
   const form = document.getElementById("formu");
   const message = document.getElementById("msg");
